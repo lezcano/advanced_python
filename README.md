@@ -35,7 +35,7 @@ https://rszalski.github.io/magicmethods
 - More on Construction and Initialisation
 - Reflected Comparisons and Arithmetic
 - Context Managers
-- Iterators: More in [Book, Chapter 3.4][1]
+- Iterators: More in [Python in Practice, Chapter 3.4][1]
 - Attr access
 - Functors: The `__call__` method
 - Reflection
@@ -45,7 +45,7 @@ https://rszalski.github.io/magicmethods
 
 ## Metaprogramming: Reflection, Class Methods and Metaclasses
 Reference:
-Partially covered in [Book, Chapter 1][1]
+Partially covered in [Python in Practice, Chapter 1][1]
 ### Class inheritance and Multiple Inheritance: MRO
 Reference:
 http://python-history.blogspot.com/2010/06/method-resolution-order.html
@@ -57,10 +57,12 @@ http://python-history.blogspot.com/2010/06/method-resolution-order.html
 ### globals, vars, locals
 
 ## Extending Python with C
-[Book, Chapter 5][1]
+[Python in Practice, Chapter 5][1]
 
 ## References
 [Python in Practice](http://solo.bodleian.ox.ac.uk/primo_library/libweb/action/display.do?tabs=detailsTab&ct=display&fn=search&doc=oxfaleph021507104&indx=1&recIds=oxfaleph021507104&recIdxs=0&elementId=0&renderMode=poppedOut&displayMode=full&frbrVersion=&frbg=&vl(254947567UI0)=any&&dscnt=0&vl(1UIStartWith0)=contains&scp.scps=scope%3A%28OX%29&tb=t&vid=OXVU1&mode=Basic&vl(516065169UI1)=all_items&srt=rank&tab=local&dum=true&vl(freeText0)=python%20in%20practice&dstmp=1554158279721)
+
+[Fluent Python](http://solo.bodleian.ox.ac.uk/primo_library/libweb/action/display.do?tabs=detailsTab&ct=display&fn=search&doc=oxfaleph021456229&indx=2&recIds=oxfaleph021456229&recIdxs=1&elementId=1&renderMode=poppedOut&displayMode=full&frbrVersion=&frbg=&vl(254947567UI0)=any&&dscnt=0&vl(1UIStartWith0)=contains&scp.scps=scope%3A%28OX%29&tb=t&vid=OXVU1&mode=Basic&vl(516065169UI1)=all_items&srt=rank&tab=local&dum=true&vl(freeText0)=fluent%20python&dstmp=1554159383961)
 
 [1]: http://solo.bodleian.ox.ac.uk/primo_library/libweb/action/display.do?tabs=detailsTab&ct=display&fn=search&doc=oxfaleph021507104&indx=1&recIds=oxfaleph021507104&recIdxs=0&elementId=0&renderMode=poppedOut&displayMode=full&frbrVersion=&frbg=&vl(254947567UI0)=any&&dscnt=0&vl(1UIStartWith0)=contains&scp.scps=scope%3A%28OX%29&tb=t&vid=OXVU1&mode=Basic&vl(516065169UI1)=all_items&srt=rank&tab=local&dum=true&vl(freeText0)=python%20in%20practice&dstmp=1554158279721
 
