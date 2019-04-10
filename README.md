@@ -3,7 +3,7 @@ This is a repository containing notes and short scripts / sessions used in the c
 
 The course will follow some chapters of the book [Fluent Python][1], seasoned with examples and comparisons between python and other languages (mostly C / C++).
 
-The classes are in the MCR room at the HB Allen Centre (25 Banbury Rd.) on Tuesdays at 7pm.
+The classes will be in the **MCR at the HB Allen Centre** (25 Banbury Rd.) on **Tuesdays at 7pm**.
 
 There is a mailing list for the course where the announces will be made. Contact Mario Lezcano if you want to be added.
 
