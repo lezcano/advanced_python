@@ -11,6 +11,8 @@ In the [src folder](src/) you can find snippets used for illustration in the dif
 
 In the [classes.md](classes.md) file, you can find a summary of the contents touched on each class.
 
+This repository does not intend to be a substitute for the classes, but more like a complement to those that attended the course. If you cannot make it to one class but you would like to know what we covered in that class, please contact me.
+
 ## References
 [Fluent Python][1]
 
