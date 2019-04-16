@@ -7,7 +7,7 @@ The classes are in the MCR room at the HB Allen Centre (25 Banbury Rd.) on Tuesd
 
 There is a mailing list for the course where the announces will be made. Contact Mario Lezcano if you want to be added.
 
-In the [src folder](src/) you can find snippets used for illustration in the different classes, and a "session" with the commands executed during the class.
+In the [src folder](src/) you can find snippets used for illustration in the different classes, and a `session.py` script with the commands executed during the class.
 
 In the [classes.md](classes.md) file, you can find a summary of the contents touched on each class.
 
