@@ -1,4 +1,4 @@
-# Class Structure
+# Short notes on the classes
 
 ## Class 0: Generalities
 - The Zen of Python
@@ -13,3 +13,45 @@
         - Rule of thumb: Shorter (in number of calls) is better
 - A word on inheritance
     - Think about it as decorating the class
+
+## Class 1: Flat containers
+- [p.20 UML diagram]
+- List comprehensions
+    - Syntax
+    - Their values are local: `x = 3; [x for x in range(5)]`
+    - Prefer list comprehension over `map` / `filter`
+    - Cartesian product.
+- Generator expressions [More in Chapter 14]
+    - Syntax
+    - Example in for loop and min function
+- Tuples
+    - Syntax
+    - As immutable lists
+    - As records: Less space than an object
+    - Unpacking (as with any sequence)
+        - Swap two variables
+        - Star operator for calling functions with tuple (Ex.)
+        - Return multiple values (Ex.)
+        - Nesting works fine (Ex.)
+    - `Card = collections.namedtuple('Card', ['rank', 'suit'])`
+- Slicing
+    - Syntax (Ex capicua: a == a[::-1])
+    - Slice object. `seq.__getitem___(slice(start, stop, step))`
+    - Multidimensional slicing. [`my_seq.py`]
+    - Ellipsis (Numpy)
+    - Assigning to slice: rhs has to be an iterable
+- Sequences
+    - Operator + and *
+        - Lists of lists and operator *. [`operator_mul.py`, `fix_operator_mul.py`]
+        - Mention empty list of lists
+    - Operator += and *=: Mutable vs immutable [`mutable_vs_immutable.py`]
+        - Puzzle [`puzzle.py`]: Putting mutable objects in immutable objects is not good
+    - Sorted sequences
+        - `.sort()` vs `sorted`
+        - `bisect`, `insort`
+- A word on numpy / scipy / torch
+- Deques
+    - Efficiency and thread-safe
+    - Rotate and append left / right
+    - Removing from middle is slow
+    - Mention heapq module and asyncio.PriorityQueue
