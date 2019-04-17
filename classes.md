@@ -35,7 +35,7 @@
         - Nesting works fine (Ex.)
     - `Card = collections.namedtuple('Card', ['rank', 'suit'])`
 - Slicing
-    - Syntax (Ex capicua: a == a[::-1])
+    - Syntax (Ex palindrome: a == a[::-1])
     - Slice object. `seq.__getitem___(slice(start, stop, step))`
     - Multidimensional slicing. [`my_seq.py`]
     - Ellipsis (Numpy)
