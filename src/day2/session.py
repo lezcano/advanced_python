@@ -69,23 +69,23 @@ d["red"]        #fine
 #e["second"].append(5)
 #print(e)
 
-class A:
-    "This is my class"
-    def __init__(self):
-        self.a = "hello"
-        self.b = "world"
-
-    def __str__(self):
-        return "{}, {}".format(self.a, self.b)
-
-    def uppera(self):
-        return self.a.upper()
-
-c = A()
-print(c)
-print(c.a)
-print(getattr(c, "a"))
-print(c.__dict__["a"])
+#class A:
+#    "This is my class"
+#    def __init__(self):
+#        self.a = "hello"
+#        self.b = "world"
+#
+#    def __str__(self):
+#        return "{}, {}".format(self.a, self.b)
+#
+#    def uppera(self):
+#        return self.a.upper()
+#
+#c = A()
+#print(c)
+#print(c.a)
+#print(getattr(c, "a"))
+#print(c.__dict__["a"])
 #print(c.b)
 #c1 = {"a": "hello", "b": "world", "uppera": lambda s: s["a"].upper()}
 ##print(c1["a"])
@@ -100,3 +100,10 @@ print(c.__dict__["a"])
 #pprint(c.__doc__)
 #
 #
+hugelist = [] #define here
+
+a = set(i for i in range(5))
+
+print(len(set(a).intersection(set(hugelist))))
+
+
