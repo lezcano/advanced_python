@@ -55,3 +55,60 @@
     - Rotate and append left / right
     - Removing from middle is slow
     - Mention heapq module and asyncio.PriorityQueue
+
+## Class 2: Mappings
+- Dictionaries
+    - Hashable objects:
+        - Implements `__eq__` and `__hash__` and `a == b` => `hash(a) == hash(b)`
+            - If you impelment `__eq__` you also have to implement `__hash__`
+        - An immutable object is "always" hashable. A list is not.
+    - `dict` comprehensions
+    - `__getitem__` just called by `operator[]`, not by get or `__contains__`.
+    - Don't look up more than you need to
+        - `.get(key, default)` returns None or the element, but it is not inserted
+        - `.setdefault()`: If not, the element is inserted
+        - `collections.defaultdict(list)`: Just default value for `__getitem__`
+        - `__missing__`
+    - Other dicts:
+        - `collections.OrderedDict`: Keeps an order on the keys
+        - `collections.ChainMap`: "Flattens" a few dicts into one
+        - `collections.Counter`
+        - `UserDicts`: Just override magic methods and you're good. [Ex. strkeydict.py]
+    - Everything in Python is a dictionary
+        - `__dir__`
+        - There are functions to access these inner things:
+            - `vars`
+            - `setattr(obj, a, 0) == obj.__dict__["a"] = 0 == obj.a = 0`
+            - `hasattr`
+- Sets
+    - Set comprehensions and empty set
+    - `frozenset` (built-in type)
+    - Use & (intersection) operator to find multiple elements in set.
+        - `len(set(needles).intersection(haystack))`
+    - Create a `set` or a `frozenset` is a good use case for generators
+- Under the hood
+    - Explain hash tables: Upper part of hash to find bucket, lower part to resolve collisions
+    - The hash() function is salted. The salt is constant at a process level.
+    - Avg 1-2 collisions. 1/3 of the hash table empty
+    - They are not memory efficient
+        - But they are not as bad as they used to be: (See history below)
+        - 2./ Keys were scrambled
+        - 3.5 Randomised
+        - 3.6 Ordered but not guaranteed by the standard
+        - 3.7 Ordered guaranteed by the standard
+- Design of a hash table
+    - Taken from: https://www.youtube.com/watch?v=p33CVV29OG8
+    - Separate chaining: Two buckets [[(hash, key, value), ...], [(hash, key, value), ...]]
+        - It wastes empty buckets
+        - Every list needs room to grow
+    - Open addressing
+        [(key, value), None, None, (key, value), None]
+        - Linear probing
+        - Gets rids of the extra lists
+        - Catastrophic pile-up
+    - Open addressing multiple pile-up
+        - Random number generator (random probing)
+    - Compact dict
+        [list with (hash, key, value)]
+        [pointer to position in list] # [0, None, 4, 3, None, None] -> 1 byte in size
+
