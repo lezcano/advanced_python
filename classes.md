@@ -112,3 +112,115 @@
         [list with (hash, key, value)]
         [pointer to position in list] # [0, None, 4, 3, None, None] -> 1 byte in size
 
+## Class 3: Functional programming
+- Functions are first-class citizens
+    - Create, pass around and return functions at runtime
+    - Higher-order functions (Ex. key for `sorted` or `max`. `map`, `filter`, and `reduce` (`fold`).
+    - Lambda (anonymous) functions.
+        - Not very useful: You can define a function anywhere
+- Seven flavours of operator() (testeable with `callable()`):
+    - User defined function / lambda
+    - Built-in function
+    - Built-in methods
+    - Methods
+    - Classes: When invoked with `__new__`
+    - Classes instances (Functors) (functions with state) (a word on closures and decorators)
+    - Coroutines
+- Function introspection
+    - `__dict__` : Stores the attributes of a function
+    - `f.__code__.co_varnames`, `f.__code__.co_argcount`
+    - `inspect` module (Ex. p.152)
+- Function arguments
+    - Default arguments
+    - *args iterable arguments
+    - **kwargs mapping arguments
+    - Call by name. After default arguments or iterable arguments
+- Function annotations
+    - Syntax: def f(text:str) -> str
+    - They do nothing -> Postprocessing needed
+- Functional programming
+    - `operator` module
+        - shortcuts like `mul`
+        - `itemgetter` for sorting (Ex `itemgetter(1)(foo) == foo[1]`)
+        - `attrgetter` (attrgetter('bar')(foo) == foo.bar
+        - `methodcaller (methodcaller("bar", arg1, arg2)(foo) == foo.bar(arg1, arg2))`
+    - `functools` module
+        - `functools.partial`.
+        - Also achieved with lambdas although less fine (function.partial has the attributes of the previous function)
+
+Extra readings:
+Functional Programming HOWTO:
+https://docs.python.org/3/howto/functional.html
+
+## Class 4: Decorators and Closures
+- Decorators
+    - Syntax: Strictly speaking they are syntactic sugar (Ex. p.184)
+    - Invoked at import time (after the function definition) (Ex. snippet on this?)
+    - Example: Add functions to a list.
+- Closures
+    - Scope of variables. `global` keyword (Ex. 7.5 p.189)
+    - Example averager: Implementation with functur and with closure
+        - Add `avg.__code__.co_varnames`
+        - Add `avg.__code__.co_freevars`
+        - Add `avg.__closure__[0].cell_contents`
+    - The only case when we have free variables that are non-global is when we have a function within a function
+    - `nonlocal` declaration (Ex 7-13 p.195)
+- Decorators in practice (metaprogramming!)
+    - `clocked` (Ex 7.15, p.197)
+    - `functools.wraps(func)`. (Ex.7.17, p.199)
+    - `functools.lru_cache(maxsize, typed)`: Memoization (effortless dynamic programming) (Ex. dynammic programming)
+    - `functools.singledispatch`: (Ex. 7.21 p.204)
+        - Advantage: It delegates the responsability to each module, not to one function or one class
+    - Decorators with parameters: Make a factory that returns a decorator (3 nested functions) (Ex 7-25 p.209)
+    - Note: Difficult decorators are better implemented in a class + `__call__` fashion
+    - Note: For really difficult decorators or library-level decorators, consider the module `wrapt`
+- Further reading:
+    - http://blog.dscpl.com.au/2014/01/how-you-implemented-your-python.html
+
+## Class 5: Object References, Mutability, and Recycling
+- Variables in Python ARE labels NOT boxes
+    - Figure 8.1
+    - ids are given when the variables are created. Ex. 8.2
+    - id's are like the "memory address" of the variables
+    - `is` compares the `id` of the variables: Useful when comparing to a singleton (faster, it's not a function)
+    - Tuples are relatively immutable `a = (3, []); a[1].append(2)`
+    - Copies are shallow by thefault (`l2 = list(l1)` or `l2 = l1[:]`).
+    - `copy.deepcopy(obj)`: Cyclic references might be problematic, this module implements this correctly
+        - `__copy__` and `__deepcopy__`
+- Function parameters
+    - Passed as `T *const` (copy of a constant pointer to a non-constant object)
+    - Don't use mutable objects as parameter defaults
+        - Different instances They will share the same instance of the parameter (Ex. 8.12 p.230)
+        - They live in `C.__init__.__defaults__`
+    - Don't use in-out parameters or aliase them! - deepcopy them if necessary
+- Destruction
+    - `del` deletes names, not objects. `__del__` is tricky to use and almost never needed
+    - `weakref` module. (Ex 8.16) - Useful for caching objects
+    - Refcounting
+    - `weakref.WeakValueDictionary` and other weakref collections. It's fragile (Ex. 8.19)
+    - Some classes (tuple, int) cannot be weakreferenced. list and dict can when subclassed
+    - Interning: Some popular numbers are shared rahter than copied (not documented, don't rely on this)
+
+## Class 6: Objects
+- Object representation
+    - `__repr__` (developer) and `__str__`(user).
+    - `__bytes__` (sequence of bytes) and others [Ex. 9.11 p.250]
+- Classmehots vs staticmethods
+    - `classmethod` to provide with different constructors
+- `__format__`
+    - Format specifiers [Ex. 9.5 9.6 p. 255, 256]
+- `__hash__`
+    - Recommendable to make the class immutable: `@property`
+    - Equal objects should imply equal hash
+- Dunder attributes in Python
+    - A comment on single underscore attributes
+- `__slots__`
+    - What are they
+    - The behaviour is not inherited
+    - Use numpy or pandas for large arrays
+- `typecode`
+    - It's a class attribute, and we can change it per-instance
+    - To change it globally subclass
+
+## Class 7: Sequences
+p.277
